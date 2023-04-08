@@ -50,11 +50,6 @@ var MayorOmenor = /** @class */ (function (_super) {
     MayorOmenor.prototype.mostrarEnPantalla = function (pCarta) {
         return pCarta.getCartas();
     };
-    /*  private bienvenido():void{
-          console.log(red(`BIENVENIDO A MAYOR O MENOR\n`.toUpperCase()));
-          console.log(green(`Que comience el juego\n`.toUpperCase()));
-          
-      }*/
     MayorOmenor.prototype.calcularPremio = function (pMayoroMenor) {
         var carta1aux;
         var carta2aux;
@@ -101,7 +96,7 @@ var MayorOmenor = /** @class */ (function (_super) {
             console.clear();
             pantalla.bienvenido(this.titulo);
             this.mostrarEnPantalla(this.carta1);
-            console.log(this.jugador.getDinero());
+            //   console.log(this.jugador.getDinero());
             strPantalla.push("Su dinero actual es de $".concat(this.jugador.getDinero(), "\n"));
             strPantalla.push("La carta en la mesa es : ".concat((0, colors_1.red)(this.carta1.getCartas())));
             strPantalla.push("\u00BFLa siguiente carta es Mayor o Menor?");

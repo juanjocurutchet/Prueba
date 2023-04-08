@@ -39,11 +39,7 @@ export class MayorOmenor extends Mazo{
         return pCarta.getCartas();
     }
 
-  /*  private bienvenido():void{
-        console.log(red(`BIENVENIDO A MAYOR O MENOR\n`.toUpperCase()));
-        console.log(green(`Que comience el juego\n`.toUpperCase()));
-        
-    }*/
+  
 
     private calcularPremio(pMayoroMenor:number):void{
         let carta1aux:number;
@@ -90,7 +86,7 @@ export class MayorOmenor extends Mazo{
             console.clear();
             pantalla.bienvenido(this.titulo);            
             this.mostrarEnPantalla(this.carta1);
-            console.log(this.jugador.getDinero());
+         //   console.log(this.jugador.getDinero());
             
             strPantalla.push(`Su dinero actual es de $${this.jugador.getDinero()}\n`)
             strPantalla.push(`La carta en la mesa es : ${red(this.carta1.getCartas())}`);

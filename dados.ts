@@ -63,33 +63,34 @@ export class Dados {
                         this.tirarDados();
                         strDados=[];
                         for (let i:number =0; i<5; i++){
-                            strDados.push(`Dado ${i}: ${this.dados[i]}`)
-                        }
+                            strDados.push(`Dado ${i+1}: ${this.dados[i]}`)
+                        }                        
                         pantalla.setPantalla(strDados);
-                        pantalla.mostrarPantalla("Dados, dados y mas dados");
+                        pantalla.mostrarPantalla(this.nombre);
                         pantalla.pausaConsola();
                         this.verificarGenerala();
                         this.verificarEscalera();
                         this.verificarPoker();
                         this.verificarFull();
+      //                  console.log(strDados);
                         console.log(this.premioObtenido());
                         console.log("\n");
                         
                         
-                } while(readlineSync.keyInYN("¿Desea jugar de nuevo?"))
+                } while((this.jugador.getDinero()>0)&&(readlineSync.keyInYN("¿Desea jugar de nuevo? ")))
 
     
 
             }
 
-        private probPremioMayor(): number {
+        private probPremioMayor(): string {
 
                 const lados = 6; // número de lados en cada dado
                 const combinacionesPosibles = Math.pow(lados, 5); // número total de combinaciones posibles
                 const combinacionesCincoIguales = lados; // solo hay una combinación posible para obtener cinco dados iguales
                 const probabilidad = combinacionesCincoIguales / combinacionesPosibles; // calcular la probabilidad
 
-                return probabilidad;
+                return blue(`Su probabilidad de obtener el premio mayor es de ${red(`${probabilidad}`)}`);
 
         }
 

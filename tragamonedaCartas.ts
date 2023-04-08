@@ -127,7 +127,7 @@ export class TragamonedasCartas extends Tragamonedas {
             this.pantalla.mostrarPantalla(this.getNombreTragamonedas());
             console.log(this.calcularPremio());
             console.log("\n");
-        } while ((this.jugador.getDinero()<=0)||(readlineSync.keyInYN("¿Desea jugar de nuevo? ")));
+        } while ((this.jugador.getDinero()>0)&&(readlineSync.keyInYN("¿Desea jugar de nuevo? ")));
     }
 
 }

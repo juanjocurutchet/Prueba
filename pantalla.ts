@@ -51,9 +51,8 @@ export class Pantalla {
                 }
                 break;
             case "Dados, dados y mas dados":
-                this.pantalla=[];
                 for (let i:number=0;i<5;i++){
-                    console.log(this.pantalla[i]);
+                    console.log(this.pantalla[i]);                    
                 }
                 break;
             default:

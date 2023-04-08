@@ -47,7 +47,6 @@ var Pantalla = /** @class */ (function () {
                 }
                 break;
             case "Dados, dados y mas dados":
-                this.pantalla = [];
                 for (var i = 0; i < 5; i++) {
                     console.log(this.pantalla[i]);
                 }

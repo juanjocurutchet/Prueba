@@ -121,7 +121,7 @@ var TragamonedasFrutas = /** @class */ (function (_super) {
             this.pantalla.mostrarPantalla(this.getNombreTragamonedas());
             console.log(this.calcularPremio());
             console.log("\n");
-        } while ((this.jugador.getDinero() <= 0) || (readlineSync.keyInYN("¿Desea jugar de nuevo? ")));
+        } while ((this.jugador.getDinero() > 0) && (readlineSync.keyInYN("¿Desea jugar de nuevo? ")));
     };
     return TragamonedasFrutas;
 }(tragamoneda_1.Tragamonedas));

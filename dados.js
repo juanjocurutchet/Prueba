@@ -2,6 +2,7 @@
 exports.__esModule = true;
 exports.Dados = void 0;
 var readlineSync = require("readline-sync");
+var colors_1 = require("colors");
 var pantalla_1 = require("./pantalla");
 var Dados = /** @class */ (function () {
     function Dados(jugador, nombre) {
@@ -56,25 +57,26 @@ var Dados = /** @class */ (function () {
             this.tirarDados();
             strDados = [];
             for (var i = 0; i < 5; i++) {
-                strDados.push("Dado ".concat(i, ": ").concat(this.dados[i]));
+                strDados.push("Dado ".concat(i + 1, ": ").concat(this.dados[i]));
             }
             pantalla.setPantalla(strDados);
-            pantalla.mostrarPantalla("Dados, dados y mas dados");
+            pantalla.mostrarPantalla(this.nombre);
             pantalla.pausaConsola();
             this.verificarGenerala();
             this.verificarEscalera();
             this.verificarPoker();
             this.verificarFull();
+            //                  console.log(strDados);
             console.log(this.premioObtenido());
             console.log("\n");
-        } while (readlineSync.keyInYN("¿Desea jugar de nuevo?"));
+        } while ((this.jugador.getDinero() > 0) && (readlineSync.keyInYN("¿Desea jugar de nuevo? ")));
     };
     Dados.prototype.probPremioMayor = function () {
         var lados = 6; // número de lados en cada dado
         var combinacionesPosibles = Math.pow(lados, 5); // número total de combinaciones posibles
         var combinacionesCincoIguales = lados; // solo hay una combinación posible para obtener cinco dados iguales
         var probabilidad = combinacionesCincoIguales / combinacionesPosibles; // calcular la probabilidad
-        return probabilidad;
+        return (0, colors_1.blue)("Su probabilidad de obtener el premio mayor es de ".concat((0, colors_1.red)("".concat(probabilidad))));
     };
     // Cargamos el arreglo dados con cinco numeros aleatorios...
     Dados.prototype.tirarDados = function () {
