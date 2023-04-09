@@ -122,23 +122,26 @@ export class Dados {
                 return true;
         }
 
-        /* Obtenemos el primer elemento del arreglo para compararlo con los demás.Contar la 
-        cantidad de elementos iguales al primer elemento, retornamos verdadero si hay cuatro
-        elementos iguales al primer elemento*/
+        /* Utilizamos un bucle for para iterar sobre cada elemento del array. 
+        luego utilizamos otro bucle for anidado para contar el número de ocurrencias en el array.
+        Si elemento el aparece cuatro veces en el array, retorna true.Si el bucle exterior se
+        completa sin encontrar cuatro números iguales, retorna false.*/
 
         private verificarPoker(): boolean {
+                for (let i = 0; i < this.dados.length; i++) {
 
-                const primerElemento = this.dados[0];
-
-                let contador = 0;
-                for (let i = 1; i < this.dados.length; i++) {
-                        if (this.dados[i] === primerElemento) {
-                                contador++;
-                        }
+                let count = 0;
+                for (let j = 0; j < this.dados.length; j++) {
+                        if (this.dados[j] === this.dados[j]) {
+                    count++;
                 }
-
-                return contador === 3;
+                        if (count === 4) {
+                    return true;
+                }
+            }
         }
+        return false;
+    }
 
         /*Primero ordenamos el arreglo de menor a mayor con sort. Luego, iteramos a través de cada
         elemento del arreglo y verificamos si es igual al elemento anterior más 1. Si encontramos
@@ -155,12 +158,10 @@ export class Dados {
                 return true;
         }
 
-        /* Tomamos los valores de los dados y creamos un nuevo arreglo que contiene solo los valores 
-        únicos almacenados en dados utilizando Set. Luego, verificamos si numerosUnicos contiene dos 
-        valores únicos; si no es así, no puede haber un Full, por lo que la función devuelve false.
-        Si hay exactamente dos valores únicos en numerosUnicos, contamos cuántas veces aparece uno de 
-        ellos en dados utilizando el método filter. Si ese valor aparece exactamente dos o tres veces,
-        retornamostrue, de lo contrario, retornamos false. */
+        /*Creamos una nueva matriz llamada numerosUnicos (contiene solo los valores únicos de
+        los dados) usando reduce. Si numerosUnicos contiene exactamente 2 valores únicos, calculamos
+        la cantidad de veces que aparece el primer valor dados y lo almacenamos en numRepetidos.
+        Retorna true si numRepetidoses 2 o 3, y false en caso contrario. */ 
 
 
         private verificarFull(): boolean {
